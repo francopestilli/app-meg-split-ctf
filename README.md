@@ -1,5 +1,49 @@
 # Split MEG files
 
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Splits a CTF MEG recording into two time segments (for example test and retest) with MNE-Python and saves each as a .fif file.**
+
+Reads the CTF .ds recording with mne.io.read_raw_ctf and saves two cropped copies: t1min-t1max to the test output and t2min-t2max to the retest output. Use it to cut one recording into two parts for test-retest analyses.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/meg/ctf` |
+| 📤 **Outputs** | `neuro/meg/fif` ×2 |
+| 🐳 **Container** | `brainlife/mne:0.23dev` |
+| ⚙️ **Resources** | 8 CPUs |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.536](https://doi.org/10.25663/brainlife.app.536) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `fif file` | `neuro/meg/ctf` | yes | CTF MEG recording (.ds) with BIDS sidecars. |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `out_dir1` | `neuro/meg/fif` | First segment (t1min to t1max) as meg.fif. |
+| `out_dir2` | `neuro/meg/fif` | Second segment (t2min to t2max) as meg.fif. |
+
+<details>
+<summary><b>⚙️ Parameters</b> (4)</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `t1min` | number | `0` | Start time of the first segment. (s) |
+| `t1max` | string |  | End time of the first segment. (s) |
+| `t2min` | number |  | Start time of the second segment. (s) |
+| `t2max` | number |  | End time of the second segment. (s) |
+
+</details>
+
+📚 **References used by this App:**
+- Avesani P, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6:69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+
+<!-- brainlife-app:end -->
+
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.469-blue.svg)](https://doi.org/10.25663/brainlife.app.469)
 
